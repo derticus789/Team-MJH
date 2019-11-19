@@ -3,11 +3,13 @@ var playerTop = 0;
 var gridSize = 50;
 
 var mazeString = `\
-...x..........
-.x.x..x.xxx..x
-...x.xx.xxxx.x
-xx...xxx!..x..
-...x...xxx...x`;
+.....
+xxxx.
+xxx..
+xxx.x
+!...x`;
+
+/*
 var mazeString2 = `\
 ...xxxxxx!xxxxxxxxxxx.
 .xxxxxxxxxxxxx.xxxxxx.
@@ -15,7 +17,7 @@ var mazeString2 = `\
 xx..xx.xx..x.x.x.x..!.
 .......xx....x.x..x...
 xxxxxxxxxx.xxxxxxxxxxx`;
-
+*/
 var maze = mazeString.split("\n").map(row => row.split(""));
 
 function mazeClass(character) {
@@ -77,7 +79,7 @@ $("body").keydown(function(event) {
     }
   }
   drawPlayer();
-  if (playerLeft === 8 && playerTop === 3) {
+  if (playerLeft === 0 && playerTop === 4) {
     setTimeout(function() {
       alert("u win lol");
     }, 250);

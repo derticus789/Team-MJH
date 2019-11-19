@@ -4,6 +4,7 @@
   }
   #maze {
     position: absolute;
+    background-image: url("https://wallpapertag.com/wallpaper/full/1/7/6/491762-black-purple-background-2560x1440-photos.jpg");
   }
   .mazeRow {
     display: flex;
@@ -11,8 +12,7 @@
   .mazeCell {
     width: 50px;
     height: 50px;
-    /*background: lightgray;*/
-    border: 2px solid black;
+    border: 2px transparent;
     box-sizing: border-box;
     display: inline-block;
   }
@@ -23,12 +23,12 @@
     height: 50px;
   }
   .mazeWall {
-    background: dimgray;
+    background: black;
   }
   .goal {
     background: radial-gradient(green, lightgreen);
   }
   body {
     overflow: hidden;
+    background-image: url("https://wallpapertag.com/wallpaper/full/1/7/6/491762-black-purple-background-2560x1440-photos.jpg");
   }
-  
