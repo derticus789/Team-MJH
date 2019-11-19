@@ -1,0 +1,34 @@
+* {
+    margin: 0px;
+    font-size: 0px;
+  }
+  #maze {
+    position: absolute;
+  }
+  .mazeRow {
+    display: flex;
+  }
+  .mazeCell {
+    width: 50px;
+    height: 50px;
+    /*background: lightgray;*/
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  #player {
+    background: blue;
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  .mazeWall {
+    background: dimgray;
+  }
+  .goal {
+    background: radial-gradient(green, lightgreen);
+  }
+  body {
+    overflow: hidden;
+  }
+  
