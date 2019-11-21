@@ -80,12 +80,23 @@ $("body").keydown(function(event) {
   }
   drawPlayer();
   if (playerLeft === 0 && playerTop === 4) {
+  
+
     setTimeout(function() {
       alert("u win lol");
     }, 250);
+    // var button = document.createElement ("Next level");
+    // var button1 = $("<button/>");
+    // button1.text("TEST");
+
+    var button1 = $('<input type="button" value="NEXT LEVEL"/>');
+    $("#buttonArea").append(button1);
+    button1.onClick("secondLevel");
+    // $("#buttonArea").append(button1);
+
     var audio = new Audio("http://soundbible.com/grab.php?id=1719&type=wav");
-    audio.play(5);
-  }
+    audio.play(5);      
+    }
 });
 
 function drawPlayer() {

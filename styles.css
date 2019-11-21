@@ -29,6 +29,14 @@
     background: radial-gradient(green, lightgreen);
   }
   body {
+
     overflow: hidden;
-    background-image: url("https://wallpapertag.com/wallpaper/full/1/7/6/491762-black-purple-background-2560x1440-photos.jpg");
+    /*background-image: url("https://wallpapertag.com/wallpaper/full/1/7/6/491762-black-purple-background-2560x1440-photos.jpg");
+  */
   }
+
+  #buttonArea {
+    padding-left: 250px;
+  }
+
+
