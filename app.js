@@ -9,16 +9,20 @@ xxx..
 xxx.x
 !...x`;
 
-/*
 var mazeString2 = `\
-...xxxxxx!xxxxxxxxxxx.
-.xxxxxxxxxxxxx.xxxxxx.
-.....x................
-xx..xx.xx..x.x.x.x..!.
-.......xx....x.x..x...
-xxxxxxxxxx.xxxxxxxxxxx`;
-*/
-var maze = mazeString.split("\n").map(row => row.split(""));
+....................
+xxxxx..........xxxx
+xxx...x.......xxxxx
+.......xxxxxx......
+xxx................
+.............xxxxx..
+......xxxxx......xxx
+xx.............xxxxx`;
+
+
+
+let mazeArray = [mazeString, mazeString2];
+var maze = mazeArray[0].split("\n").map(row => row.split(""));
 
 function mazeClass(character) {
   if (character === "x") {
@@ -89,14 +93,61 @@ $("body").keydown(function(event) {
     // var button1 = $("<button/>");
     // button1.text("TEST");
 
-    var button1 = $('<input type="button" value="NEXT LEVEL"/>');
+    var button1 = $('<input type="button" value="NEXT LEVEL" id="button1"/>');
+    $(document).ready(() => {
+      $("#button1").click( () => {
+        nextLevel();
+      })
+    });
+
     $("#buttonArea").append(button1);
-    button1.onClick("secondLevel");
-    // $("#buttonArea").append(button1);
+   
 
     var audio = new Audio("http://soundbible.com/grab.php?id=1719&type=wav");
     audio.play(5);      
     }
+});
+
+
+function nextLevel() {
+  maze = mazeArray[1].split("\n").map(row => row.split(""));
+  drawMaze();
+  $("body").keydown(function(event) {
+    console.log(playerLeft, playerTop);
+    if (event.key === "ArrowRight") {
+      if (
+        playerLeft === maze[0].length - 1 ||
+        maze[playerTop][playerLeft + 1] === "x"
+      ) {
+        return;
+      }
+      playerLeft += 1;
+    } else if (event.key === "ArrowLeft") {
+      if (maze[playerTop][playerLeft - 1] === "x") {
+        return;
+      }
+      if (0 !== playerLeft) {
+        playerLeft -= 1;
+      }
+    } else if (event.key === "ArrowUp") {
+      if (playerTop === 0 || maze[playerTop - 1][playerLeft] === "x") {
+        return;
+      }
+      if (0 !== playerTop) {
+        playerTop -= 1;
+      }
+    } else if (event.key === "ArrowDown") {
+      if (
+        playerTop === maze.length - 1 ||
+        maze[playerTop + 1][playerLeft] === "x"
+      ) {
+        return;
+      }
+      if (4 !== playerTop) {
+        playerTop += 1;
+      }
+    }
+  drawPlayer();
 });
 
 function drawPlayer() {
