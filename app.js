@@ -108,10 +108,10 @@ $("body").keydown(function(event) {
     }
 });
 
-
 function nextLevel() {
   maze = mazeArray[1].split("\n").map(row => row.split(""));
-  drawMaze();
+
+    drawMaze();
   $("body").keydown(function(event) {
     console.log(playerLeft, playerTop);
     if (event.key === "ArrowRight") {
@@ -147,8 +147,74 @@ function nextLevel() {
         playerTop += 1;
       }
     }
-  drawPlayer();
-});
+    drawPlayer();
+    if (playerLeft === 0 && playerTop === 4) {
+    
+
+      setTimeout(function() {
+        alert("u win lol");
+      }, 250);
+      // var button = document.createElement ("Next level");
+      // var button1 = $("<button/>");
+      // button1.text("TEST");
+
+      var button1 = $('<input type="button" value="NEXT LEVEL" id="button1"/>');
+      $(document).ready(() => {
+        $("#button1").click( () => {
+          nextLevel();
+        })
+      });
+
+      $("#buttonArea").append(button1);
+    
+
+      var audio = new Audio("http://soundbible.com/grab.php?id=1719&type=wav");
+      audio.play(5);      
+      }
+  });
+}
+
+
+// function nextLevel() {
+//   maze = mazeArray[1].split("\n").map(row => row.split(""));
+//   drawMaze();
+//   $("body").keydown(function(event) {
+//     console.log(playerLeft, playerTop);
+//     if (event.key === "ArrowRight") {
+//       if (
+//         playerLeft === maze[0].length - 1 ||
+//         maze[playerTop][playerLeft + 1] === "x"
+//       ) {
+//         return;
+//       }
+//       playerLeft += 1;
+//     } else if (event.key === "ArrowLeft") {
+//       if (maze[playerTop][playerLeft - 1] === "x") {
+//         return;
+//       }
+//       if (0 !== playerLeft) {
+//         playerLeft -= 1;
+//       }
+//     } else if (event.key === "ArrowUp") {
+//       if (playerTop === 0 || maze[playerTop - 1][playerLeft] === "x") {
+//         return;
+//       }
+//       if (0 !== playerTop) {
+//         playerTop -= 1;
+//       }
+//     } else if (event.key === "ArrowDown") {
+//       if (
+//         playerTop === maze.length - 1 ||
+//         maze[playerTop + 1][playerLeft] === "x"
+//       ) {
+//         return;
+//       }
+//       if (4 !== playerTop) {
+//         playerTop += 1;
+//       }
+//     }
+//   drawPlayer();
+// });
 
 function drawPlayer() {
   $("#player").css("left", playerLeft * gridSize + "px");
