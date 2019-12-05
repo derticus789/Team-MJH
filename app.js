@@ -11,13 +11,13 @@ xxx.x
 
 var mazeString2 = `\
 ....................
-xxxxx..........xxxx
-xxx...x.......xxxxx
-.......xxxxxx......
-xxx................
-.............xxxxx..
-......xxxxx......xxx
-xx.............xxxxx`;
+....................
+....................
+....................
+....................
+....................
+....................
+....................`;
 
 
 
@@ -112,7 +112,7 @@ function nextLevel() {
   maze = mazeArray[1].split("\n").map(row => row.split(""));
 
     drawMaze();
-  $("body").keydown(function(event) {
+  /* $("body").keydown(function(event) {
     console.log(playerLeft, playerTop);
     if (event.key === "ArrowRight") {
       if (
@@ -171,7 +171,7 @@ function nextLevel() {
       var audio = new Audio("http://soundbible.com/grab.php?id=1719&type=wav");
       audio.play(5);      
       }
-  });
+  }); */
 }
 
 
