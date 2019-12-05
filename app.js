@@ -10,14 +10,14 @@ xxx.x
 !...x`;
 
 var mazeString2 = `\
-....................
-....................
-....................
-....................
-....................
-....................
-....................
-....................`;
+.....xxxxxxx........
+xxxx.xxxxxxx.xxxxxx.
+xxxx.xxxxxxx.xxxxxx.
+xxxx.........xxxxxx.
+!xxxxxxxxxxxxxxxxxx.
+.xxxxxxxxxxxxxxxxxx.
+.xxxxxxxxxxxxxx.....
+................xxxx`;
 
 
 
@@ -33,7 +33,33 @@ function mazeClass(character) {
     return "mazeCell goal";
   }
 }
+
+
+// function drawMaze() {
+//   $("#maze").empty();
+//   var div = $("");
+//   console.log(div);
+//   for (var i = 0; i < maze.length; i++) {
+//     div.append($("<div>").addClass("mazeRow"));
+//     console.log(div);
+
+//     for (var j = 0; j < maze[i].length; j++) {
+//       var mazeCell = maze[i][j];
+//       var className = mazeClass(maze[i][j]);  
+
+//       div.append($("<span>").addClass(className));
+//     }
+//   }
+
+//   $("#maze").replaceWith(div);
+
+// }
+
+
+
 function drawMaze() {
+  $("#maze").empty()
+
   for (var i = 0; i < maze.length; i++) {
     var div = $("<div>").addClass("mazeRow");
 
@@ -46,7 +72,10 @@ function drawMaze() {
     $("#maze").append(div);
   }
 }
+
 drawMaze();
+
+
 $("body").keydown(function(event) {
   console.log(playerLeft, playerTop);
   if (event.key === "ArrowRight") {
@@ -78,9 +107,7 @@ $("body").keydown(function(event) {
     ) {
       return;
     }
-    if (4 !== playerTop) {
       playerTop += 1;
-    }
   }
   drawPlayer();
   if (playerLeft === 0 && playerTop === 4) {
@@ -112,6 +139,7 @@ function nextLevel() {
   maze = mazeArray[1].split("\n").map(row => row.split(""));
 
     drawMaze();
+    console.log(maze.length)
   /* $("body").keydown(function(event) {
     console.log(playerLeft, playerTop);
     if (event.key === "ArrowRight") {
