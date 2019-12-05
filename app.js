@@ -137,6 +137,8 @@ $("body").keydown(function(event) {
 
 function nextLevel() {
   maze = mazeArray[1].split("\n").map(row => row.split(""));
+  playerLeft = 0
+  playerTop = 0
 
     drawMaze();
     console.log(maze.length)
